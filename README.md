@@ -9,7 +9,7 @@
 2. **Classification of Method Type**: Categorizing relevant papers into one of four categories: ["text mining", "computer vision", "both", "other"] based on the methodology used.
 3. **Extraction of Methods**: Extracting and reporting the names of the specific methods or models used in the relevant papers.
 
-**Note:
+#### **Note:**
 Scripts filter_papers_task1.ipynb contains the whole code for task 1, Semantic NLP Filtering.
 ---
 
