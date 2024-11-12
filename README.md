@@ -10,7 +10,9 @@
 3. **Extraction of Methods**: Extracting and reporting the names of the specific methods or models used in the relevant papers.
 
 #### **Note:**
-Scripts filter_papers_task1.ipynb contains the whole code for task 1, Semantic NLP Filtering.
+##### Script filter_papers_task1.ipynb contains the whole code for task 1, Semantic NLP Filtering.
+##### Script classification_task2.ipynb contains the whole code for task 2, Classification of Methods.
+##### Script extract_model_name_task3.ipynb contains the whole code for task 3, Extraction of Methods.
 ---
 
 ### **Task 1: Semantic NLP Filtering**
