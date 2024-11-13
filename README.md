@@ -113,30 +113,6 @@ For Tasks 1 and 3, some prompts include examples to demonstrate the expected str
 - **Structured Examples**: The examples in Task 1 help the model differentiate between papers focused on deep learning and unrelated fields. This clarity aids the model in generating "yes" or "no" responses with greater precision.
 - **Guided Extraction**: For method extraction in Task 3, listing examples of recognized models encourages the model to seek similar terminology in titles and abstracts, leading to the accurate extraction of model names.
 
-### **Why Llama 3.2 is the Choice**
-
-The selection of **Llama 3.2** for this task was particularly fitting for several reasons:
-
-#### **1. Enhanced Contextual Understanding**
-
-Llama 3.2 is known for its superior contextual understanding and ability to process specialized terminology, which is especially useful in the scientific and academic domains. The model can handle complex phrasing and interpret nuanced language in academic abstracts, making it ideal for filtering and classifying scientific literature.
-
-#### **2. Improved Accuracy with Prompt Engineering**
-
-Llama 3.2 has improved accuracy, mainly when guided by precise, prompt engineering. By providing clear instructions and structured examples, I aimed to leverage Llama 3.2’s capability to understand and follow task-specific prompts effectively, improving its ability to distinguish between nuanced categories like “text mining” vs. “computer vision.”
-
-#### **3. Efficient Handling of Large Datasets**
-
-Given the dataset of over 11,000 records, its improved processing speed and memory efficiency make it well-suited for managing high-volume tasks. Its optimization for semantic tasks means it can quickly sift through titles and abstracts, identify key terms, and make binary or categorical decisions without overwhelming computational resources.
-
-#### **4. Advanced Text Extraction and Classification Capabilities**
-
-The model is designed to recognize detailed patterns in text, which is crucial for accurately extracting model names or categorizing methods. Its training includes exposure to structured and unstructured text, enhancing its reliability when pinpointing specific model names or method types in academic writing.
-
-#### **5. Alignment with Domain-Specific Needs**
-
-It has been fine-tuned with data across various fields, including biomedical literature, making it a good fit for virology and epidemiology topics. This cross-disciplinary understanding allows it to interpret specialized terms within virology and epidemiology, enhancing the accuracy of results when filtering and classifying papers relevant to deep learning.
-
 ---
 
 ### **Conclusion and Summary**
