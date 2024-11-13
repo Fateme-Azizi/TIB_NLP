@@ -22,12 +22,16 @@ The objective of Task 1 was to classify whether each research paper (based on it
 #### **Prompts Used for Task 1**:
 - **Prompt 1**: The basic structure of the prompt asked the model to classify the relevance of the paper based on the provided title and abstract.
     - **Example**: "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications."
+
 - **Prompt 2**: This prompt emphasized the expertise of deep learning in determining relevance. It ensured that the model recognized deep learning-specific terminology and context.
     - **Example**: "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning."
+
 - **Prompt 3**: Here, a simple yes/no decision was requested based on whether deep learning was mentioned or relevant.
     - **Example**: "Analyze the following title and abstract to decide if it addresses deep learning methodologies."
+
 - **Prompt 4**: Provided examples to clarify how to make a judgment about deep learning relevance.
     - **Example**: "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not."
+
 - **Prompt 5**: This prompt encouraged summarizing the focus before making a judgment, making it more comprehensive.
     - **Example**: "You are tasked with reviewing academic papers for relevance to deep learning. For the following title and abstract, first summarize the main focus, then decide if it is related to deep learning."
 
@@ -44,12 +48,16 @@ In Task 2, once relevant papers were identified, the next step was to classify t
 #### **Prompts Used for Task 2**:
 - **Prompt 1**: This prompt was designed for direct classification based on the research paper’s title and abstract.
     - **Example**: "Classify the following research paper based on the type of method used."
+
 - **Prompt 2**: This was similar to Prompt 1 but emphasized the categorization of the method.
     - **Example**: "Based on the title and abstract, determine the primary method used in this research paper."
+
 - **Prompt 3**: Another prompt offering clear instructions to classify papers based on the research method, ensuring precision.
     - **Example**: "Read the title and abstract and classify it according to the method used."
+
 - **Prompt 4**: This prompt helped contextualize the classification by explaining the possible methods and examples.
     - **Example**: "Analyze the title and abstract below and classify them based on the type of method employed."
+
 - **Prompt 5**: It offered a direct classification request, focusing on identifying the most relevant category.
     - **Example**: "Classify the following title and abstract into one of these categories."
 
@@ -66,14 +74,19 @@ Task 3 involved extracting the names of the methods or models used in the releva
 #### **Prompts Used for Task 3**:
 - **Prompt 1**: Direct extraction of the model or method name was required from the provided title and abstract.
     - **Example**: "Your task is to extract the name of the model or method used in the following research paper."
+
 - **Prompt 2**: Focused on identifying the model or method and returning "NA" if no model was mentioned.
     - **Example**: "Extract the name of the model or method. If no model is mentioned, return 'NA'."
+
 - **Prompt 3**: A prompt that catered to extracting multiple model names if applicable.
     - **Example**: "Analyze the following title and abstract to identify and extract the specific model or method being discussed."
+
 - **Prompt 4**: Provided clear instructions on identifying models such as BERT, ResNet, etc., helping the AI model target specific well-known names.
     - **Example**: "Your task is to extract the name of the model or method from research papers."
+
 - **Prompt 5**: A simple approach where if no model was found, the response was clearly marked as "No model found."
     - **Example**: "Please read the following title and abstract carefully and extract any names of models or methods mentioned within them."
+
 - **Prompt 6 & 7**: These prompts required extracting methods in a clean bullet-point format and were designed to handle a variety of possible method names, from hybrid approaches to specific deep learning models.
     - **Example**: "Now, please analyze the following article and return the name of the methods."
 
