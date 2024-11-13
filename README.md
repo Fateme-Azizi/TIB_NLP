@@ -3,11 +3,49 @@
 
 ### Semantic NLP Filtering for Deep Learning Papers in Virology/Epidemiology
 
-#### The task was divided into three distinct parts:
+This project leverages large language models (LLMs) to automate the processing of academic papers, specifically focusing on three key tasks:
+
+1. **Semantic NLP Filtering**
+2. **Classification of Method Type**
+3. **Extraction of Methods**
+   
+The goal is to streamline the process of academic paper analysis, saving time and resources while ensuring high-quality insights.
+
+---
+
+### Project Overview
+
+The project consists of three main tasks:
 
 1. **Semantic NLP Filtering**: Identifying papers that are relevant to deep learning applications in virology and epidemiology.
 2. **Classification of Method Type**: Categorizing relevant papers into one of four categories: ["text mining", "computer vision", "both", "other"] based on the methodology used.
 3. **Extraction of Methods**: Extracting and reporting the names of the specific methods or models used in the relevant papers.
+
+---
+
+### Methodology
+
+**Task 1:**  Filtering Papers Based on Deep Learning Usage
+- Input: For each paper, the title and abstract are provided to the LLM, along with a prompt asking whether the paper uses deep learning models.
+- Approach: Five variations of the prompt were designed to ensure robustness and capture diverse interpretations of deep learning terminology by the LLM.
+- Output: The LLM returns the response: either "Yes," indicating that the paper uses deep learning, or "No," indicating that it does not.
+
+
+**Task 2:** Categorizing Papers into Predefined Groups
+- Input: The LLM receives the title, abstract, and a prompt requesting the categorization of the paper into one of the following groups:
+- - text_mining
+- - computer_vision
+- - both (indicating that the paper involves both text mining and computer vision)
+- - other (for papers that do not fit into any of the previous categories)
+- Approach: Five distinct prompts were created to account for the different ways papers might be described and classified.
+- Output: The LLM returns one of the four categories or NaN if it is unable to confidently categorize the paper.
+
+
+**Task 3:** Extracting Model Names from Paper
+- Input: For this task, the LLM is provided with the title, abstract, and a prompt asking it to extract the names of deep learning models used in the paper.
+- Challenge: The LLM’s response can be a string containing model names or additional explanatory text. This creates ambiguity in processing, as sometimes the LLM returns more information than required.
+- Approach: The responses are post-processed and compared to response from different promts to isolate model names. 
+- Output: The LLM provides a string of text that may contain the names of one or more models used in the paper.
 
 #### **Note:**
 ##### Script filter_papers_task1.ipynb contains the whole code for task 1, Semantic NLP Filtering.
@@ -15,11 +53,9 @@
 ##### Script extract_model_name_task3.ipynb contains the whole code for task 3, Extraction of Methods.
 ---
 
-### **Task 1: Semantic NLP Filtering**
+### Prompt Templates 
 
-The objective of Task 1 was to classify whether each research paper (based on its title and abstract) is relevant to deep learning applications in virology/epidemiology. The prompts were designed to guide the AI model in determining the relevance of each paper.
-
-#### **Prompts Used for Task 1**:
+##### **Prompts Used for Task 1**:
 - **Prompt 1**: The basic structure of the prompt asked the model to classify the relevance of the paper based on the provided title and abstract.
     - **Example**: "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications."
 
@@ -39,13 +75,8 @@ The objective of Task 1 was to classify whether each research paper (based on it
 - The use of multiple similar prompts allowed for a robust evaluation by testing different approaches to detecting deep learning relevance.
 - The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers.
 
----
 
-### **Task 2: Classification of Method Type**
-
-In Task 2, once relevant papers were identified, the next step was to classify them based on the primary method employed. The classification options included "text mining," "computer vision," "both," or "other."
-
-#### **Prompts Used for Task 2**:
+##### **Prompts Used for Task 2**:
 - **Prompt 1**: This prompt was designed for direct classification based on the research paper’s title and abstract.
     - **Example**: "Classify the following research paper based on the type of method used."
 
@@ -65,13 +96,9 @@ In Task 2, once relevant papers were identified, the next step was to classify t
 - The variety in prompt wording provided flexibility in handling a broad spectrum of academic papers. It ensured that the model could correctly identify the method applied, whether it be related to "text mining," "computer vision," or a combination of both.
 - The distinction between "other" and the other categories ensured that the model could identify research that didn't neatly fit into the other predefined categories.
 
----
 
-### **Task 3: Extraction of Methods**
 
-Task 3 involved extracting the names of the methods or models used in the relevant research papers. This step was crucial for identifying specific deep learning models mentioned, such as CNNs, RNNs, or other specialized neural network architectures.
-
-#### **Prompts Used for Task 3**:
+##### **Prompts Used for Task 3**:
 - **Prompt 1**: Direct extraction of the model or method name was required from the provided title and abstract.
     - **Example**: "Your task is to extract the name of the model or method used in the following research paper."
 
@@ -94,9 +121,8 @@ Task 3 involved extracting the names of the methods or models used in the releva
 - These extraction prompts focused on ensuring that the model could identify specific methods, even those that might not be directly labeled as models but as methodologies used in research.
 - By focusing on the extraction of multiple methods and using a clear, formatted list, these prompts ensured that all relevant methods were captured, improving the completeness of the extraction.
 
+
 ---
-
-
 
 ### **Prompt Engineering Techniques Employed**
 
@@ -128,9 +154,43 @@ For Tasks 1 and 3, some prompts include examples to demonstrate the expected str
 
 ---
 
+### **Challenges and Solutions**
+
+
+**Ambiguity in Model Extraction:**
+
+- Problem: The model’s response sometimes includes explanations or references to concepts rather than direct model names.
+- Solution: We are developing post-processing techniques, including pattern matching (using regex), to extract model names more reliably. A second layer of prompts could also be used to clarify ambiguous outputs.
+Lack of Evaluation Metrics:
+
+- Problem: Due to the absence of predefined labels or ground truth data, validating the model’s accuracy is challenging.
+- Solution: A manual evaluation of a subset of papers is planned. A group of experts will assess the LLM’s responses to provide a qualitative assessment of performance, which will help estimate accuracy.
+Prompt Sensitivity:
+
+- Problem: The quality of responses is highly dependent on the structure of the prompts used.
+- Solution: By generating multiple variations of each prompt, the robustness of the system is improved, and diverse interpretations of the academic papers are captured.
+
+---
+
+### **Results** 
+
+**Task 1 (Filtering Papers):** The LLM was able to successfully identify papers that use deep learning models. A subset of example responses can demonstrate its effectiveness.
+**Task 2 (Categorizing Papers):** The LLM demonstrated strong categorization abilities, though there were cases where the response was NaN due to vague or unclear abstracts.
+**Task 3 (Extracting Model Names):** While the LLM occasionally provided explanatory responses, it also correctly identified popular model names like BERT, ResNet, and GPT. Post-processing is being optimized to handle these cases more effectively.
+
+### Future Improvements
+- Evaluation Metrics:
+The implementation of external evaluation techniques (e.g., domain experts or a comparison to human annotations) will help refine the accuracy assessment of the model’s outputs.
+- Model Name Extraction:
+We plan to enhance the post-processing pipeline by introducing more advanced pattern matching techniques and potentially incorporating a list of known deep learning models for comparison.
+- Fine-tuning the LLM:
+Fine-tuning the LLM on a domain-specific dataset could improve performance for tasks like categorization and model name extraction, ensuring that the system is more aligned with the academic context.
+Conclusion
+
+---
 ### **Conclusion and Summary**
 
-The task was a comprehensive effort to classify and extract deep learning-related information from academic research papers in virology and epidemiology. Using different NLP prompts for filtering, classifying, and extracting models/methods ensured a thorough analysis of each paper’s content. 
+This project showcases how large language models can be utilized to automate the analysis of academic papers, providing valuable insights into whether deep learning is used, how papers are categorized, and which models are employed. While the current version of the system demonstrates promising results, further refinement in evaluation metrics, prompt optimization, and post-processing techniques will enhance its reliability and applicability in real-world academic research scenarios.
 
 By employing structured and varied prompts, we were able to:
 1. **Filter out irrelevant papers** that did not discuss deep learning techniques.
