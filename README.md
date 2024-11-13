@@ -54,8 +54,9 @@ The project consists of three main tasks:
 ---
 
 ### Prompt Templates 
+Here you can find prompt templates used for each task.
 
-##### **Prompts Used for Task 1**:
+#### **Prompts Used for Task 1**:
 - **Prompt 1**: The basic structure of the prompt asked the model to classify the relevance of the paper based on the provided title and abstract.
     - **Example**: "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications."
 
@@ -76,7 +77,7 @@ The project consists of three main tasks:
 - The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers.
 
 
-##### **Prompts Used for Task 2**:
+#### **Prompts Used for Task 2**:
 - **Prompt 1**: This prompt was designed for direct classification based on the research paper’s title and abstract.
     - **Example**: "Classify the following research paper based on the type of method used."
 
@@ -98,7 +99,7 @@ The project consists of three main tasks:
 
 
 
-##### **Prompts Used for Task 3**:
+#### **Prompts Used for Task 3**:
 - **Prompt 1**: Direct extraction of the model or method name was required from the provided title and abstract.
     - **Example**: "Your task is to extract the name of the model or method used in the following research paper."
 
@@ -122,7 +123,7 @@ The project consists of three main tasks:
 - By focusing on the extraction of multiple methods and using a clear, formatted list, these prompts ensured that all relevant methods were captured, improving the completeness of the extraction.
 
 
----
+-----
 
 ### **Prompt Engineering Techniques Employed**
 
