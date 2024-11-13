@@ -33,10 +33,10 @@ The project consists of three main tasks:
 
 **Task 2:** Categorizing Papers into Predefined Groups
 - Input: The LLM receives the title, abstract, and a prompt requesting the categorization of the paper into one of the following groups:
-- - text_mining
-- - computer_vision
-- - both (indicating that the paper involves both text mining and computer vision)
-- - other (for papers that do not fit into any of the previous categories)
+  - text_mining
+  - computer_vision
+  - both (indicating that the paper involves both text mining and computer vision)
+  - other (for papers that do not fit into any of the previous categories)
 - Approach: Five distinct prompts were created to account for the different ways papers might be described and classified.
 - Output: The LLM returns one of the four categories or NaN if it is unable to confidently categorize the paper.
 
