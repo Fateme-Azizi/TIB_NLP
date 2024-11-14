@@ -46,13 +46,14 @@ The project consists of three main tasks:
 - Output: The LLM provides a string of text that may contain the names of one or more models used in the paper.
 
 #### **Note:**
-##### Script filter_papers_task1.ipynb contains the whole code for task 1, Semantic NLP Filtering.
-##### Script classification_task2.ipynb contains the whole code for task 2, Classification of Methods.
-##### Script extract_model_name_task3.ipynb contains the whole code for task 3, Extraction of Methods.
+Script ***_filter_papers_task1.ipynb_*** contains the whole code for **task 1**, Semantic NLP Filtering.
+Script ***_classification_task2.ipynb_*** contains the whole code for **task 2**, Classification of Methods.
+Script ***_extract_model_name_task3.ipynb_*** contains the whole code for **task 3**, Extraction of Methods.
 ---
 
 ### Prompt Templates 
-Here you can find prompt templates used for each task.
+Prompt engineering is central to guiding the LLM’s responses, as it clarifies task objectives, reduces ambiguity, and shapes the output format. Here are the specific techniques and considerations used.
+For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on designed prompts.<br>
 
 
 **Prompts Used for Task 1**
@@ -66,9 +67,9 @@ Here you can find prompt templates used for each task.
 | **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevant decision | "First summarize the main focus, then decide if it is related to deep learning.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | [Moderate] |
 
 #### **Explanation:**
-Using multiple similar prompts allowed for a robust evaluation by testing different approaches to detecting deep learning relevance. The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers.
+Using multiple similar prompts allowed for a robust evaluation by testing different approaches to detecting deep learning relevance. The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers. Here, prompts focus on binary classification ("yes" or "no") to decide whether a paper is relevant. By keeping the prompt output simple, we tried to minimize the risk of unnecessary information while making it easier for the model to focus on keywords like "neural networks," "deep learning," and domain-specific terms.
 
-
+<br>
 
  **Prompts Used for Task 2**
 
@@ -82,9 +83,9 @@ Using multiple similar prompts allowed for a robust evaluation by testing differ
 
 
 #### **Explanation**:
-The variety in prompt wording provided flexibility in handling a broad spectrum of academic papers. It ensured that the model could correctly identify the method applied, whether it be related to "text mining," "computer vision," or a combination of both. Furthermore, the distinction between "other" and the other categories ensured that the model could identify research that didn't neatly fit into the other predefined categories.
+The variety in prompt wording provided flexibility in handling a broad spectrum of academic papers. It ensured that the model could correctly identify the method applied, whether related to "text mining," "computer vision," or a combination of both. Furthermore, the distinction between "other" and the other categories ensured that the model could identify research that didn't neatly fit into the other predefined categories.
 
-
+<br>
 
 #### **Prompts Used for Task 3**:
 
@@ -98,26 +99,9 @@ The variety in prompt wording provided flexibility in handling a broad spectrum 
 | **Prompt 6 & 7**  | Bullet-point extraction | Extracts methods in a clean bullet-point format, handling hybrid and specific models | "Now, please analyze the following article and return the name of the methods.<br>Title: `{title}` <br>Abstract: `{abstract}` <br>Decision:" | Moderate |
 
 #### **Explanation**:
-These extraction prompts focused on ensuring that the model could identify specific methods, even those that might not be directly labeled as models but as methodologies used in research. By focusing on the extraction of multiple methods and using a clear, formatted list, these prompts ensured that all relevant methods were captured, improving the completeness of the extraction.
+These extraction prompts focused on ensuring that the model could identify specific methods, even those that might not be directly labeled as models but as methodologies used in research. By focusing on the extraction of multiple methods and using a clear, formatted list, these prompts ensured that all relevant methods were captured, improving the completeness of the extraction. By presenting examples in some prompts, we guided the model to format responses in bullet points or to return "NA" for cases where no model was identified. This technique focused the model’s attention on detecting unique terminology (like BERT or CNN) and returning concise results.
 
-
------
-
-### **Prompt Engineering Techniques Employed**
-
-Prompt engineering is central to guiding the LLM’s responses, as it clarifies task objectives, reduces ambiguity, and shapes the output format. Here are the specific techniques and considerations used:
-
-#### **1. Task-Specific Prompt Design**
-
-For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on how I designed the prompts.
-
-- **Semantic Filtering (Task 1)**: Here, prompts focus on binary classification ("yes" or "no") to decide whether a paper is relevant. By keeping the prompt output simple, I tried to minimize the risk of unnecessary information while making it easier for the model to focus on keywords like "neural networks," "deep learning," and domain-specific terms.
-  
-- **Method Classification (Task 2)**: For this classification task, I used straightforward prompts to assign a category (like "text mining" or "computer vision") based on context. The design of these prompts ensured the model would scan for specific methodological cues, improving classification accuracy.
-
-- **Method Extraction (Task 3)**: Prompts in this task required Llama 3.2 to identify and list specific model or method names. By presenting examples in some prompts, I guided the model to format responses in bullet points or to return "NA" for cases where no model was identified. This technique focused the model’s attention on detecting unique terminology (like BERT or CNN) and returning concise results.
-
-#### **2. Iterative Prompt Variants**
+<br>
 
 Using multiple prompt variations for each task is a strategy to reduce the impact of outliers and encourage more robust model responses. Each prompt variant approaches the task from a slightly different angle, such as adding context, altering phrasing, or including examples. Here’s how the iterative approach improves performance:
 
@@ -178,4 +162,4 @@ By employing structured and varied prompts, we were able to:
 
 These steps were critical in refining the dataset and ensuring that only the most pertinent research was included in the analysis, enhancing the quality and accuracy of the final output. The methodology employed, especially the prompt-based approach, ensured a high degree of precision and consistency in tackling the task.
 
-I guided Llama 3.2 to filter, classify, and extract relevant information from a specialized dataset through structured prompt engineering, multiple prompt variants, and examples. These prompt techniques leveraged the LLM’s strengths in understanding context, handling structured tasks, and managing large datasets, making it an ideal model choice for this comprehensive NLP task.
+We guided Llama 3.2 to filter, classify, and extract relevant information from a specialized dataset through structured prompt engineering, multiple prompt variants, and examples. These prompt techniques leveraged the LLM’s strengths in understanding context, handling structured tasks, and managing large datasets, making it an ideal model choice for this comprehensive NLP task.
