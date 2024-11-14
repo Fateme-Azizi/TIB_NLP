@@ -53,7 +53,7 @@ The project consists of three main tasks:
 
 ### Prompt Templates 
 Prompt engineering is central to guiding the LLM’s responses, as it clarifies task objectives, reduces ambiguity, and shapes the output format. Here are the specific techniques and considerations used.
-For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on designed prompts.<be>
+For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on designed prompts and their performance with each prompt.<be>
 
 <br>
 
@@ -62,10 +62,10 @@ For each task— filtering, classification, and extraction—separate prompts we
 | **Prompt Number** | **Prompt Template** | **Description** | **Example** | **Performance** |
 |-------------------|---------------------|-----------------|-------------|-----------------|
 | **Prompt 1**      | Basic relevance classification | Asks the model to classify paper relevance based on title and abstract | "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications. <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | Normal |
-| **Prompt 2**      | Expert-based relevance | Emphasizes expertise in deep learning for classification | "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | **[High]** |
-| **Prompt 3**      | Simple yes/no decision | Requests a binary decision on relevance based on deep learning mention | "Analyze the following title and abstract to decide if it addresses deep learning methodologies.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | [Moderate] |
-| **Prompt 4**      | Example-based guidance | Provides examples to guide judgment on relevance | "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | [Normal] |
-| **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevant decision | "First summarize the main focus, then decide if it is related to deep learning.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | [Moderate] |
+| **Prompt 2**      | Expert-based relevance | Emphasizes expertise in deep learning for classification | "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | **High** |
+| **Prompt 3**      | Simple yes/no decision | Requests a binary decision on relevance based on deep learning mention | "Analyze the following title and abstract to decide if it addresses deep learning methodologies.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | Moderate |
+| **Prompt 4**      | Example-based guidance | Provides examples to guide judgment on relevance | "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | Normal |
+| **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevant decision | "First summarize the main focus, then decide if it is related to deep learning.  <br>Title: `{title}` <br>Abstract:`{abstract}` <br>Decision:" | Moderate |
 
 #### **Explanation:**
 Using multiple similar prompts allowed for a robust evaluation by testing different approaches to detecting deep learning relevance. The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers. Here, prompts focus on binary classification ("yes" or "no") to decide whether a paper is relevant. By keeping the prompt output simple, we tried to minimize the risk of unnecessary information while making it easier for the model to focus on keywords like "neural networks," "deep learning," and domain-specific terms.
@@ -133,23 +133,6 @@ Prompt Sensitivity:
 - Solution: By generating multiple variations of each prompt, the robustness of the system is improved, and diverse interpretations of the academic papers are captured.
 
 ---
-
-### **Results** 
-
-**Task 1 (Filtering Papers):** The LLM was able to successfully identify papers that use deep learning models. A subset of example responses can demonstrate its effectiveness.
-**Task 2 (Categorizing Papers):** The LLM demonstrated strong categorization abilities, though there were cases where the response was NaN due to vague or unclear abstracts.
-**Task 3 (Extracting Model Names):** While the LLM occasionally provided explanatory responses, it also correctly identified popular model names like BERT, ResNet, and GPT. Post-processing is being optimized to handle these cases more effectively.
-
-### Future Improvements
-- Evaluation Metrics:
-The implementation of external evaluation techniques (e.g., domain experts or a comparison to human annotations) will help refine the accuracy assessment of the model’s outputs.
-- Model Name Extraction:
-We plan to enhance the post-processing pipeline by introducing more advanced pattern matching techniques and potentially incorporating a list of known deep learning models for comparison.
-- Fine-tuning the LLM:
-Fine-tuning the LLM on a domain-specific dataset could improve performance for tasks like categorization and model name extraction, ensuring that the system is more aligned with the academic context.
-Conclusion
-
----
 ### **Conclusion and Summary**
 
 This project showcases how large language models can be utilized to automate the analysis of academic papers, providing valuable insights into whether deep learning is used, how papers are categorized, and which models are employed. While the current version of the system demonstrates promising results, further refinement in evaluation metrics, prompt optimization, and post-processing techniques will enhance its reliability and applicability in real-world academic research scenarios.
@@ -162,3 +145,14 @@ By employing structured and varied prompts, we were able to:
 These steps were critical in refining the dataset and ensuring that only the most pertinent research was included in the analysis, enhancing the quality and accuracy of the final output. The methodology employed, especially the prompt-based approach, ensured a high degree of precision and consistency in tackling the task.
 
 We guided Llama 3.2 to filter, classify, and extract relevant information from a specialized dataset through structured prompt engineering, multiple prompt variants, and examples. These prompt techniques leveraged the LLM’s strengths in understanding context, handling structured tasks, and managing large datasets, making it an ideal model choice for this comprehensive NLP task.
+
+
+-----
+
+### Future Improvements
+- Evaluation Metrics:
+Implementing external evaluation techniques (e.g., domain experts or comparing to human annotations) will help refine the accuracy assessment of the model’s outputs.
+- Model Name Extraction:
+We plan to enhance the post-processing pipeline by introducing more advanced pattern-matching techniques and potentially incorporating a list of known deep-learning models for comparison.
+- Fine-tuning the LLM:
+Fine-tuning the LLM on a domain-specific dataset could improve performance for tasks like categorization and model name extraction, ensuring that the system is more aligned with the academic context.
