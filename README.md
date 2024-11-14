@@ -35,7 +35,7 @@ The project consists of three main tasks:
   - computer_vision
   - both (indicating that the paper involves both text mining and computer vision)
   - other (for papers that do not fit into any of the previous categories)
-- Approach: Five distinct prompts were created to account for the different ways papers might be described and classified.
+- Approach: Five distinct prompts were created to describe and classify papers.
 - Output: The LLM returns one of the four categories or NaN if it is unable to confidently categorize the paper.
 
 
@@ -46,15 +46,16 @@ The project consists of three main tasks:
 - Output: The LLM provides a string of text that may contain the names of one or more models used in the paper.
 
 #### **Note:**
-Script ***_filter_papers_task1.ipynb_*** contains the whole code for **task 1**, Semantic NLP Filtering.
-Script ***_classification_task2.ipynb_*** contains the whole code for **task 2**, Classification of Methods.
-Script ***_extract_model_name_task3.ipynb_*** contains the whole code for **task 3**, Extraction of Methods.
+###### Script ***_filter_papers_task1.ipynb_*** contains the whole code for **task 1**, Semantic NLP Filtering.
+###### Script ***_classification_task2.ipynb_*** contains the whole code for **task 2**, Classification of Methods.
+###### Script ***_extract_model_name_task3.ipynb_*** contains the whole code for **task 3**, Extraction of Methods.
 ---
 
 ### Prompt Templates 
 Prompt engineering is central to guiding the LLM’s responses, as it clarifies task objectives, reduces ambiguity, and shapes the output format. Here are the specific techniques and considerations used.
-For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on designed prompts.<br>
+For each task— filtering, classification, and extraction—separate prompts were crafted with explicit instructions. This modular design helped compartmentalize complex tasks, improving clarity and the relevance of LLM responses. Below, you can find more details on designed prompts.<be>
 
+<br>
 
 **Prompts Used for Task 1**
 
@@ -108,9 +109,7 @@ Using multiple prompt variations for each task is a strategy to reduce the impac
 - **Enhances Consistency**: By offering different versions, I ensure the model learns to identify relevant cues across a broader range of expressions, improving its robustness in classification and extraction tasks.
 - **Minimizes Misclassification**: Prompts like “you are an expert in deep learning” encourage the model to prioritize relevant terminology in scientific language, minimizing potential misclassification or over-generalization.
 
-#### **3. Use of Examples within Prompts**
-
-For Tasks 1 and 3, some prompts include examples to demonstrate the expected structure and content of responses. I clarified the instructions by showing concrete examples and helped the model distinguish between relevant and irrelevant information, especially for binary classification tasks.
+Also, For Tasks 1 and 3, some prompts include examples to demonstrate the expected structure and content of responses. I clarified the instructions by showing concrete examples and helped the model distinguish between relevant and irrelevant information, especially for binary classification tasks.
 
 - **Structured Examples**: The examples in Task 1 help the model differentiate between papers focused on deep learning and unrelated fields. This clarity aids the model in generating "yes" or "no" responses with greater precision.
 - **Guided Extraction**: For method extraction in Task 3, listing examples of recognized models encourages the model to seek similar terminology in titles and abstracts, leading to the accurate extraction of model names.
