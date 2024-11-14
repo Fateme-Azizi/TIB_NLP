@@ -1,8 +1,6 @@
 # Semantic NLP Filtering for Deep Learning Papers in Virology/Epidemiology
 
 
-### Semantic NLP Filtering for Deep Learning Papers in Virology/Epidemiology
-
 This project leverages large language models (LLMs) to automate the processing of academic papers, specifically focusing on three key tasks:
 
 1. **Semantic NLP Filtering**
@@ -44,7 +42,7 @@ The project consists of three main tasks:
 **Task 3:** Extracting Model Names from Paper
 - Input: For this task, the LLM is provided with the title, abstract, and a prompt asking it to extract the names of deep learning models used in the paper.
 - Challenge: The LLM’s response can be a string containing model names or additional explanatory text. This creates ambiguity in processing, as sometimes the LLM returns more information than required.
-- Approach: The responses are post-processed and compared to response from different promts to isolate model names. 
+- Approach: The responses are post-processed and compared to the responses from different prompts to isolate model names. 
 - Output: The LLM provides a string of text that may contain the names of one or more models used in the paper.
 
 #### **Note:**
@@ -61,11 +59,14 @@ Here's how you could structure the table for your GitHub README to display the p
 
 | **Prompt Number** | **Prompt Template** | **Description** | **Example** | **Performance** |
 |-------------------|---------------------|-----------------|-------------|-----------------|
-| **Prompt 1**      | Basic relevance classification | Asks the model to classify paper relevance based on title and abstract | "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications. \nTitle: `{title}\nAbstract:`{abstract}`" | Normal |
+| **Prompt 1**      | Basic relevance classification | Asks the model to classify paper relevance based on title and abstract | "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications.
+Title: `{title}
+Abstract:`{abstract}`"
+Decision: | Normal |
 | **Prompt 2**      | Expert-based relevance | Emphasizes expertise in deep learning for classification | "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning." | **[High]** |
 | **Prompt 3**      | Simple yes/no decision | Requests a binary decision on relevance based on deep learning mention | "Analyze the following title and abstract to decide if it addresses deep learning methodologies." | [Moderate] |
 | **Prompt 4**      | Example-based guidance | Provides examples to guide judgment on relevance | "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not." | [Normal] |
-| **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevance decision | "First summarize the main focus, then decide if it is related to deep learning." | [Moderate] |
+| **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevant decision | "First summarize the main focus, then decide if it is related to deep learning." | [Moderate] |
 
 
 
