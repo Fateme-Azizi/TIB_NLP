@@ -56,25 +56,17 @@ The project consists of three main tasks:
 ### Prompt Templates 
 Here you can find prompt templates used for each task.
 
-#### **Prompts Used for Task 1**:
-- **Prompt 1**: The basic structure of the prompt asked the model to classify the relevance of the paper based on the provided title and abstract.
-    - **Example**: "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications."
 
-- **Prompt 2**: This prompt emphasized the expertise of deep learning in determining relevance. It ensured that the model recognized deep learning-specific terminology and context.
-    - **Example**: "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning."
+Here's how you could structure the table for your GitHub README to display the prompts and highlight the best-performing one:
 
-- **Prompt 3**: Here, a simple yes/no decision was requested based on whether deep learning was mentioned or relevant.
-    - **Example**: "Analyze the following title and abstract to decide if it addresses deep learning methodologies."
+| **Prompt Number** | **Prompt Template** | **Description** | **Example** | **Performance** |
+|-------------------|---------------------|-----------------|-------------|-----------------|
+| **Prompt 1**      | Basic relevance classification | Asks the model to classify paper relevance based on title and abstract | "Given the title and abstract of a research paper, classify whether it is relevant to deep learning applications." | [Normal] |
+| **Prompt 2**      | Expert-based relevance | Emphasizes expertise in deep learning for classification | "You are an expert in deep learning. Based on the following title and abstract, determine if the paper contributes to the field of deep learning." | **[High]** |
+| **Prompt 3**      | Simple yes/no decision | Requests a binary decision on relevance based on deep learning mention | "Analyze the following title and abstract to decide if it addresses deep learning methodologies." | [Moderate] |
+| **Prompt 4**      | Example-based guidance | Provides examples to guide judgment on relevance | "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not." | [Normal] |
+| **Prompt 5**      | Summarization-based judgment | Encourages summarization before making a relevance decision | "First summarize the main focus, then decide if it is related to deep learning." | [Moderate] |
 
-- **Prompt 4**: Provided examples to clarify how to make a judgment about deep learning relevance.
-    - **Example**: "Read the title and abstract below and determine if they pertain to deep learning. Use 'yes' if they do and 'no' if they do not."
-
-- **Prompt 5**: This prompt encouraged summarizing the focus before making a judgment, making it more comprehensive.
-    - **Example**: "You are tasked with reviewing academic papers for relevance to deep learning. For the following title and abstract, first summarize the main focus, then decide if it is related to deep learning."
-
-#### **Explanation**:
-- The use of multiple similar prompts allowed for a robust evaluation by testing different approaches to detecting deep learning relevance.
-- The AI was guided by explicit instructions, examples, and summarization techniques, ensuring accuracy and consistency in filtering out irrelevant papers.
 
 
 #### **Prompts Used for Task 2**:
